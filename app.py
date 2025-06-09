@@ -2,9 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from tensorflow.keras.models import load_model
+from tensorflow.keras.models import plot_model
 import joblib
 import matplotlib.pyplot as plt
-from keras.utils import plot_model
 
 # Load model dan scaler
 model = load_model("model_ann.h5")
@@ -13,7 +13,7 @@ scaler = joblib.load("scaler.save")
 # Load data
 data = pd.read_csv("diabetes.csv")
 
-st.title("📊 Aplikasi Prediksi Diabetes dengan ANN")
+st.title("📊 Perancangan Model Prediksi Diabetes Menggunakan Artificial Neural Network Berbasis Dataset Kesehatan")
 
 # 1. Tampilkan Data Asli
 st.subheader("1. Dataset Asli")
