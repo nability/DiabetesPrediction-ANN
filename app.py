@@ -2,13 +2,14 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from tensorflow.keras.models import load_model
-from tensorflow.keras.models import plot_model
+from tensorflow.keras.utils import plot_model
 import joblib
 import matplotlib.pyplot as plt
 
 # Load model dan scaler
 model = load_model("model_ann.h5")
 scaler = joblib.load("scaler.save")
+plot_model(model, to_file="ann_model.png", show_shapes=True)
 
 # Load data
 data = pd.read_csv("diabetes.csv")
@@ -21,12 +22,11 @@ st.dataframe(data.head())
 
 # 2. Struktur ANN
 st.subheader("2. Visualisasi Model ANN")
-st.text("Model ANN: 8 input → 16 ReLU → 8 ReLU → 1 Sigmoid")
+st.image("ann_model.png", caption="Struktur Arsitektur ANN")
 
 # Gambar ANN (jika ada)
 if st.checkbox("Lihat gambar arsitektur ANN"):
-    plot_model(model, to_file="ann_model.png", show_shapes=True)
-    st.image("ann_model.png")
+    st.image("ann_model.png", caption="Struktur ANN")
 
 # 3. Input User untuk Prediksi
 st.subheader("3. Prediksi Risiko Baru")
