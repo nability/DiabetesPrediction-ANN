@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 # Load model dan scaler
 model = load_model("model_ann.h5")
 scaler = joblib.load("scaler.save")
-plot_model(model, to_file="ann_model.png", show_shapes=True)
 
 # Load data
 data = pd.read_csv("diabetes.csv")
