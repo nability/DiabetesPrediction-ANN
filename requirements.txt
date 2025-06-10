@@ -7,3 +7,4 @@ scikit-learn
 tensorflow==2.12.0
 joblib
 graphviz
+pydot     # ← opsional, hanya untuk lokal
